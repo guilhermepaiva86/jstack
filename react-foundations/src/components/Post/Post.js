@@ -7,7 +7,7 @@ import {Container, Subtitle} from './styles';
 export default function Post(props) {
     return (
         
-        <Container removed={props.post.removed}>            
+        <Container $removed={props.post.removed}>            
             <PostHeader 
                 onRemove={props.onRemove}
                 post={{
