@@ -2,13 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     margin-top: 32px;
+    position: relative;
 `;
 
 export const Header = styled.header`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: ${({ $justifycontent }) => $justifycontent};
     margin-top: 32px;
+    border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
+    padding-bottom: 16px;
 
 
     strong {
@@ -31,10 +34,9 @@ export const Header = styled.header`
     }
 `;
 
-export const ListContainer = styled.div`
+export const ListHeader = styled.header`
     margin-top: 24px;
 
-    header {
     margin-bottom: 8px;
         button {
             background: transparent;
@@ -47,8 +49,12 @@ export const ListContainer = styled.div`
                 font-weight: bold;
                 color: ${({ theme }) => theme.colors.primary.main};
             }
+
+            img {
+                transform: ${({ $orderby }) => ($orderby === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)')};
+                transition: transform 0.2s ease-in;
+            }
         }
-    }
 `;
 
 export const Card = styled.div`
@@ -116,4 +122,29 @@ export const InputSearchContainer = styled.div`
             color: #bcbcbc;
         }
     }
+`;
+
+export const ErrorContainer = styled.div`
+    margin-top: 16px;
+    color: ${({ theme }) => theme.colors.danger.dark};
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+`;
+
+export const EmptyListContainer = styled.div`
+    margin-top: 16px;
+    color: ${({ theme }) => theme.colors.gray[200]};
+    text-align: center;
+`;
+
+export const NotFoundContainer = styled.div`
+    margin-top: 16px;
+    color: ${({ theme }) => theme.colors.gray[200]};
+    text-align: center;
+    word-break: break-word;
 `;

@@ -9,11 +9,15 @@ import Routes from '../../routes';
 
 import { Container } from './styles';
 
-function App() {
+import ToastContainer from '../Toast/ToastContainer';
+
+export default function App() {
+  console.log('App renderizou');
   return (
     <BrowserRouter>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
+        <ToastContainer />
         <Container>
           <Header />
           <Routes />
@@ -22,5 +26,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
