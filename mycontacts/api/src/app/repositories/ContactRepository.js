@@ -22,7 +22,7 @@ class ContactRepository {
     }
 
     async findByMail(mail) {
-        const [row] = await db.query('SELECT * FROM contacts WHERE email = $1', [mail]);
+        const [row] = await db.query('SELECT * FROM contacts WHERE mail = $1', [mail]);
         return row;
     }
 
@@ -32,7 +32,7 @@ class ContactRepository {
     }
 
     async create({ name, mail, valor, category_id }) {
-       const [row] = await db.query('INSERT INTO contacts(name, email, phone, category_id) VALUES($1, $2, $3, $4) RETURNING *', [name, mail, valor, category_id]);
+       const [row] = await db.query('INSERT INTO contacts(name, mail, valor, category_id) VALUES($1, $2, $3, $4) RETURNING *', [name, mail, valor, category_id]);
 
        return row;
     }
@@ -40,7 +40,7 @@ class ContactRepository {
     async update(id, { name, mail, valor, category_id }) {
         const [row] = await db.query(`
             UPDATE contacts
-            SET name = $1, email = $2, phone = $3, category_id = $4
+            SET name = $1, mail = $2, valor = $3, category_id = $4
             WHERE id = $5
             RETURNING *
             `, [name, mail, valor, category_id, id]);

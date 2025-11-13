@@ -6,11 +6,15 @@ class ContactService {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  async listContacts(orderBy = 'asc') {
+  listContacts(orderBy = 'asc') {
     return this.httpClient.get(`/contacts?orderby=${orderBy}`);
   }
 
-  async createContact(contact) {
+  getContactById(id) {
+    return this.httpClient.get(`/contacts/${id}`);
+  }
+
+  createContact(contact) {
     return this.httpClient.post('/contacts', {
       body: contact,
     });

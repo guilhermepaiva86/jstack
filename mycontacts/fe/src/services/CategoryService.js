@@ -6,7 +6,7 @@ class CategoryService {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  async listCategories() {
+  listCategories() {
     return this.httpClient.get('/categories');
   }
 }

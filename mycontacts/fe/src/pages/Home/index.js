@@ -145,8 +145,8 @@ export default function Home() {
                 <strong>{contact.name}</strong>
                 {contact.category_name && <small>{contact.category_name}</small>}
               </div>
-              <span>{contact.email}</span>
-              <span>{contact.phone}</span>
+              <span>{contact.mail}</span>
+              <span>{contact.valor}</span>
             </div>
 
             <div className="actions">

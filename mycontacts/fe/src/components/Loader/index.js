@@ -10,7 +10,7 @@ export default function Loader({ isLoading }) {
 
   return ReactDOM.createPortal(
     <Overlay>
-      Loading
+      Carregando
     </Overlay>,
     document.getElementById('loader-root'),
   );
